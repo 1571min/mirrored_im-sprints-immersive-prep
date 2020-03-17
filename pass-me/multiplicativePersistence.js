@@ -13,6 +13,8 @@ multiplicativePersistence 함수는 양수를 파라미터로 받는 함수로,
 
 */
 
+//testtest
+
 function multiplicativePersistence(num) {
   // your code here
 }
