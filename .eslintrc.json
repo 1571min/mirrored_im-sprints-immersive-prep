@@ -1,9 +1,20 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
   "extends": "eslint:recommended",
   "env": {
+    "browser": true,
     "node": true,
-    "es6": true,
+    "mocha": true,
     "jest": true
   },
-  "rules": {}
+    "rules": {
+    "max-length": 0 // 0으로 설정하면 에러 검출 X
+  },
+  "globals": {
+    "jQuery": true,
+    "$": true
+  }
 }
