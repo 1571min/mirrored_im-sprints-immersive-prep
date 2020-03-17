@@ -15,8 +15,27 @@ multiplicativePersistence 함수는 양수를 파라미터로 받는 함수로,
 
 //testtest
 
-function multiplicativePersistence(num) {
-  // your code here
+function makeArr(num) {
+  let numArr = String(num).split('');
+  return numArr;
 }
+
+function multiplicativePersistence(num) {//786
+  let numArr = makeArr(num)//['7','']
+  let result = 0;
+  numArr.reduce(acc => (acc <= 9) ? result = acc : makeArr(acc).reduce((acc,cur) => Number(acc) * Number(cur), 1), num);
+  return result;
+}
+
+
+// function multiplicativePersistence(num) {
+//   // your code here
+// if(acc <= 9){
+//   result = acc;
+// }
+// //acc를 문자-> 숫자 하는과정 반복
+// return makeArr(acc).reduce((acc,cur) => Number(acc) * Number(cur), 1)
+// }, num)
+// }
 
 module.exports = multiplicativePersistence;

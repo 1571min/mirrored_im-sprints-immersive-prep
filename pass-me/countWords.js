@@ -14,14 +14,10 @@ console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
 function countWords(input) {
   // your code here
   let result = input.split(' ');
-  return result.reduce((acc, cur) =>{
-    if (cur in acc) {
-      acc[cur]++;
-    } else {
-      acc[cur] = 1;
-    }
-    return acc;
-  }, {});
+  let obj = {};
+  if (input.length === 0) return {};
+  result.reduce((acc, cur) => (cur in obj) ? obj[cur]++ : obj[cur] = 1, result[0]);
+  return obj
 }
 module.exports = countWords;
 
