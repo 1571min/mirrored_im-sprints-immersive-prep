@@ -18,11 +18,20 @@ fn(); // 1
 fn(); // 2
 fn(); // 3
 fn(); // 5
-
 */
 
 function makeFib() {
   // your code here
+  let beforeFib=0;
+  let afterFib=1;
+  //temp는 after의 값을 가지고 있을 변수
+  return function () {
+    let result=beforeFib;
+    let temp=afterFib
+    afterFib=beforeFib+afterFib;
+    beforeFib=temp;
+    return result;
+  }
 }
 
 module.exports = makeFib;
