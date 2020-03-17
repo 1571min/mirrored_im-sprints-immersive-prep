@@ -42,9 +42,38 @@ global.printRole = function(user) {
 };
 
 function transformAsHTML(array) {
-  let container = document.querySelector("#container");
+  // let aTag=curingTag('a');
+  // let divTag=curingTag('div');
+  let container=document.querySelector('#container');
+  if(container.childNodes){
+    array.forEach((ele) => {
+      let liTag=document.createElement('li');
+      let aTag=document.createElement('a');
+      let divTag=document.createElement('div');
 
-  // your code here
+      //a태그
+      aTag.className='name';
+      aTag.textContent=ele.firstName+" "+ele.lastName;
+      //div태그
+      divTag.className='age';
+      divTag.textContent=ele.age;
+
+      
+
+      liTag.appendChild(aTag);
+      liTag.appendChild(divTag);
+      container.appendChild(liTag);
+    });
+
+    //onclick 부여 (함수를 직접 부여하면 호출카운트가 늘어나서 다음과 같이부여)
+    //클릭시 undefine 찍혀서 수정 
+    let names=document.querySelectorAll('.name');
+    for(let i=0;i<names.length;i++){
+      names[i].onclick=function () {
+        global.printRole(array[i]);
+      }
+    }
+  }
 }
 
 module.exports = transformAsHTML;
