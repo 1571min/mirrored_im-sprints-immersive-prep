@@ -24,6 +24,18 @@
 
 function transformEmployeeData(array) {
   // your code here
+  return array.map(employee =>
+    employee.reduce((obj, ele) => ((obj[ele[0]] = ele[1]), obj), {})
+  );
 }
 
 module.exports = transformEmployeeData;
+
+// function transformEmployeeData(array) {
+//   return array.map(function (employee) {
+//     return employee.reduce((obj,ele)=>{
+//         obj[ele[0]]=ele[1];
+//         return obj;
+//     },{})
+//   })
+// }
